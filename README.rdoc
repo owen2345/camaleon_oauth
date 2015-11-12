@@ -1,3 +1,2 @@
 = CamaleonOauth
-
-This project rocks and uses MIT-LICENSE.
+This is a Camaleon CMS gem to support oauth integration for Camaleon CMS.
