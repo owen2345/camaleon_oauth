@@ -1,0 +1,21 @@
+{
+  "title": "Camaleon Oauth",
+  "descr": "",
+  "version": "0.1",
+  "key": "camaleon_oauth",
+  "helpers": [
+    "Plugins::CamaleonOauth::MainHelper"
+  ],
+  "hooks": {
+    "on_active": [
+      "camaleon_oauth_on_active"
+    ],
+    "on_inactive": [
+      "camaleon_oauth_on_inactive"
+    ],
+    "on_upgrade": [
+      "camaleon_oauth_on_upgrade"
+    ]
+    //here you can add all your hooks (read documentation)
+  }
+}
