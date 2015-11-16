@@ -1,13 +1,20 @@
-class Api::V1::ContactFormController < CamaleonCms::Api::ApiController
-  #TODO this controller must be into ContactForm plugin app
+class CamaleonCms::Api::V1::ContactFormController < CamaleonCms::Api::ApiController
   skip_before_filter :verify_authenticity_token
 
   swagger_controller :contact_form, 'ContactForm'
 
   swagger_api :contact_form_by_slug do
-    summary "Fetch a single Contact Form by slug"
+    summary 'Fetch a single Contact Form by slug'
     param :path, :slug, :string, :required, 'Contact form slug'
     response :ok, 'Success', :ContactForm
+    response :not_found
+  end
+
+  swagger_api :save_form do
+    summary 'Submit a contact form'
+    param :form, :id, :integer, :required, 'Contact form id'
+    param :form, :fields, :array, :required, 'Fields'
+    response :ok, 'Success'
     response :not_found
   end
 
@@ -17,19 +24,11 @@ class Api::V1::ContactFormController < CamaleonCms::Api::ApiController
       render_json_not_found
     else
       render json: {
-                 :id => form.id,
-                 :fields => JSON.parse(form.value).to_sym[:fields],
-                 :settings => JSON.parse(form.settings).to_sym
-             }
+          :id => form.id,
+          :fields => JSON.parse(form.value).to_sym[:fields],
+          :settings => JSON.parse(form.settings).to_sym
+      }
     end
-  end
-
-  swagger_api :save_form do
-    summary "Submit a contact form"
-    param :form, :id, :integer, :required, 'Contact form id'
-    param :form, :fields, :array, :required, 'Fields'
-    response :ok, 'Success'
-    response :not_found
   end
 
   def save_form
