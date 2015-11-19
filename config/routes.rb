@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   scope PluginRoutes.system_info["relative_url_root"] do
     scope module: "camaleon_cms", as: "cama" do
 
+      get 'doc' => redirect('/docs/index.html?url=/api-docs.json')
+
       namespace :api do
         use_doorkeeper
 
@@ -11,6 +13,11 @@ Rails.application.routes.draw do
           get 'categories' => 'category#categories'
           get 'posts' => 'post#index'
           get 'pages' => 'page#index'
+
+          scope :users do
+            get '*' => 'user#users'
+            post 'create' => 'user#create'
+          end
 
           scope :contact_form do
             get 'show/:slug' => 'contact_form#contact_form_by_slug'
