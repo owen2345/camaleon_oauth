@@ -1,4 +1,4 @@
-class CamaleonCms::Api::V1::ContactFormController < CamaleonCms::Api::ApiController
+class Plugins::CamaleonOauth::Api::V1::ContactFormController < Plugins::CamaleonOauth::Api::ApiController
   skip_before_filter :verify_authenticity_token
 
   swagger_controller :contact_form, 'ContactForm'

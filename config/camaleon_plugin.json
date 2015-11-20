@@ -15,6 +15,9 @@
     ],
     "on_upgrade": [
       "camaleon_oauth_on_upgrade"
+    ],
+    "plugin_options": [
+      "camaleon_oauth_plugin_options"
     ]
     //here you can add all your hooks (read documentation)
   }

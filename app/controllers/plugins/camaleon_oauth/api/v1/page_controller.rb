@@ -1,4 +1,4 @@
-class CamaleonCms::Api::V1::PageController < CamaleonCms::Api::ApiController
+class Plugins::CamaleonOauth::Api::V1::PageController < Plugins::CamaleonOauth::Api::ApiController
 
   swagger_controller :page, 'Pages'
 

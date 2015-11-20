@@ -19,4 +19,8 @@ module Plugins::CamaleonOauth::MainHelper
   # plugin: plugin model
   def camaleon_oauth_on_upgrade(plugin)
   end
+
+  def camaleon_oauth_plugin_options(arg)
+    arg[:links] << link_to(t('plugin.camaleon_oauth.documentation'), admin_plugins_camaleon_oauth_documentation_path)
+  end
 end
