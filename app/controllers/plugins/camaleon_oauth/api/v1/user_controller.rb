@@ -14,12 +14,12 @@ class Plugins::CamaleonOauth::Api::V1::UserController < Plugins::CamaleonOauth::
     param :form, 'user[password_confirmation]', :string, :required, 'User password confirmation'
     param :form, 'meta[first_name]', :string, :optional, 'User first name meta'
     param :form, 'meta[last_name]', :string, :optional, 'User last name meta'
-    CamaleonCms::Api::ApiController::add_swagger_response_code(api, ERROR_NOT_CREATED)
-    CamaleonCms::Api::ApiController::add_swagger_response_code(api, ERROR_CAPTCHA_VALIDATION)
+    Plugins::CamaleonOauth::Api::ApiController::add_swagger_response_code(api, ERROR_NOT_CREATED)
+    Plugins::CamaleonOauth::Api::ApiController::add_swagger_response_code(api, ERROR_CAPTCHA_VALIDATION)
   end
 
   def users
-    render json: User.all
+    render json: CamaleonCms::User.all
   end
 
 
