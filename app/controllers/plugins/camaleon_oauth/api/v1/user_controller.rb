@@ -1,4 +1,4 @@
-class CamaleonCms::Api::V1::UserController < Api::ApiController
+class Plugins::CamaleonOauth::Api::V1::UserController < Plugins::CamaleonOauth::Api::ApiController
   skip_before_filter :verify_authenticity_token
   swagger_controller :users, 'Users'
 

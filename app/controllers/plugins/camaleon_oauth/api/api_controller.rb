@@ -1,5 +1,5 @@
-class CamaleonCms::Api::ApiController < CamaleonCms::CamaleonController
-  include CamaleonCms::ApiHelper
+class Plugins::CamaleonOauth::Api::ApiController < CamaleonCms::CamaleonController
+  include Plugins::CamaleonOauth::ApiHelper
   #before_action -> { doorkeeper_authorize! :client }
 
   def account

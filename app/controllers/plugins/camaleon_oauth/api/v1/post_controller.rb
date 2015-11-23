@@ -1,4 +1,4 @@
-class CamaleonCms::Api::V1::PostController < CamaleonCms::Api::ApiController
+class Plugins::CamaleonOauth::Api::V1::PostController < Plugins::CamaleonOauth::Api::ApiController
 
   swagger_controller :post, 'Posts'
 
