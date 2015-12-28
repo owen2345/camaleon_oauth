@@ -8,13 +8,6 @@ Rails.application.routes.draw do
         namespace 'camaleon_oauth' do
 
           get 'index' => 'admin#index'
-
-          # if ENV['RAILS_SERVE_STATIC_FILES'].present?
-          # if Rails.application.config.serve_static_files
-          #   get 'documentation' => redirect('/docs/index.html')
-          # else
-          #   get 'documentation' => redirect('public/docs/index_public.html')
-          # end
           get 'documentation' => redirect('/docs/index.html')
         end
       end
