@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.description = ': Description of CamaleonOauth.'
   s.license = 'MIT'
 
-  s.files = Dir['{app,config,db,lib,public}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
+  s.files = Dir['{app,config,db,lib,docs}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
   s.test_files = Dir['test/**/*']
 
   s.add_dependency 'rails'

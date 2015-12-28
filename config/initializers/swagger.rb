@@ -2,7 +2,7 @@ Swagger::Docs::Config.register_apis(
   {
     '1.0' => {
       :api_extension_type => :json,
-      :api_file_path => "public/",
+      :api_file_path => "docs/",
       :clean_directory => false,
       :attributes => {
         :info => {
@@ -16,3 +16,9 @@ Swagger::Docs::Config.register_apis(
     }
   }
 )
+
+class Swagger::Docs::Config
+  def self.transform_path(path, api_version)
+    "docs/#{path}"
+  end
+end
