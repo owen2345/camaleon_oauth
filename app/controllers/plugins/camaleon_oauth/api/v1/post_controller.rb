@@ -66,7 +66,6 @@ class Plugins::CamaleonOauth::Api::V1::PostController < Plugins::CamaleonOauth::
   end
 
   def featured
-    # posts = current_site.posts.joins(:custom_field_values).where("#{CustomFieldsRelationship.table_name}.custom_field_slug = ? and #{CustomFieldsRelationship.table_name}.object_class = ?", 'featured', 'Post')
     posts = current_site.posts.sort_by_field('featured', 'desc')
     render json: posts
   end

@@ -8,13 +8,6 @@ Rails.application.routes.draw do
         namespace 'camaleon_oauth' do
 
           get 'index' => 'admin#index'
-
-          # if ENV['RAILS_SERVE_STATIC_FILES'].present?
-          # if Rails.application.config.serve_static_files
-          #   get 'documentation' => redirect('/docs/index.html')
-          # else
-          #   get 'documentation' => redirect('public/docs/index_public.html')
-          # end
           get 'documentation' => redirect('/docs/index.html')
         end
       end
@@ -27,8 +20,16 @@ Rails.application.routes.draw do
 
           namespace :v1 do
             get 'categories' => 'category#categories'
-            get 'posts' => 'post#index'
             get 'pages' => 'page#index'
+
+            scope :posts do
+              get '*' => 'post#index'
+              get 'slug/:slug' => 'post#slug'
+              get ':id' => 'post#show'
+              get 'category_id/:category_id' => 'post#category_id'
+              get 'category_name/:category_name' => 'post#category_name'
+              get 'featured' => 'post#featured'
+            end
 
             scope :users do
               get '*' => 'user#users'
