@@ -24,7 +24,7 @@ class Plugins::CamaleonOauth::Api::V1::UserController < Plugins::CamaleonOauth::
 
 
   def create
-    response = cama_register_user(params[:user], params[:meta])
+    response = cama_register_user(params.require(:user).permit!, params.require(:meta).permit!)
     if response[:result]
       render_json_ok
     else
