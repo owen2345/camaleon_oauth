@@ -1,4 +1,6 @@
 class Plugins::CamaleonOauth::Api::V1::ContactFormController < Plugins::CamaleonOauth::Api::ApiController
+  include Plugins::CamaContactForm::ContactFormControllerConcern
+  
   skip_before_filter :verify_authenticity_token
 
   swagger_controller :contact_form, 'ContactForm'
@@ -40,7 +42,7 @@ class Plugins::CamaleonOauth::Api::V1::ContactFormController < Plugins::Camaleon
       errors = []
       success = []
 
-      perform_save_form(form, values, fields, settings, success, errors)
+      perform_save_form(form, fields, success, errors)
       if success.present?
         render_json_ok(success.join('<br>'))
       else
